@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: random-generator
+spec:
+  completions: 5
+  parallelism: 0
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - image: k8spatterns/random-generator:1.0
+        name: random-generator
+        command: ["sleep", "200"]
