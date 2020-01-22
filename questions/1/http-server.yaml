@@ -1,9 +1,15 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: q1
+---
+apiVersion: v1
 kind: Pod
 metadata:
-  name: http-server
   labels:
     app: http-server
+  name: http-server
+  namespace: q1
 spec:
   containers:
     - name: http-server
@@ -11,4 +17,4 @@ spec:
       # command: ["http-server"]
       args: ["http-server"]
       ports:
-      - containerPort: 8080
+      - containerPort: 8888
